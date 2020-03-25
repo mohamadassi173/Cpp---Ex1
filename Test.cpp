@@ -72,3 +72,40 @@ TEST_CASE("Test replacement of lower-case and upper-case") {
 }
 
 /* Add more test cases here */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TEST_CASE("Test replacement of lower-case and upper-case") {
+    string text = "Happi xxx yyy";
+    CHECK(find(text, "happi") == string("Happi"));
+    CHECK(find(text, "Happi") == string("Happi"));
+    CHECK(find(text, "HAPPI") == string("Happi"));
+    CHECK(find(text, "HaPpI") == string("Happi"));
+    
+}
