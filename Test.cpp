@@ -1,5 +1,7 @@
 /**
- * AUTHORS: Mohamad assi, Oday shibli and zahraa zaid
+ * AUTHORS: Mohamad assi, Oday mahamid and zahraa zaid
+ * 
+ * 
  * 
  * Date: 2020-03
  */
