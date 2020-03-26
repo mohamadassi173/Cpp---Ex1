@@ -7,7 +7,6 @@
 #include "doctest.h"
 #include "PhoneticFinder.hpp"
 using namespace phonetic;
-
 #include <string>
 using namespace std;
 
@@ -23,6 +22,10 @@ TEST_CASE("Test replacement of p and b") {
     CHECK(find(text, "haPBy") == string("happy"));
     CHECK(find(text, "haBpy") == string("happy"));
     CHECK(find(text, "haPby") == string("happy"));
+    CHECK_THROWS_AS(find(text, "b"), std::exception);
+    CHECK_THROWS_AS(find(text, "B"), std::exception);
+    CHECK_THROWS_AS(find(text, "p"), std::exception);
+    CHECK_THROWS_AS(find(text, "P"), std::exception);
 }
 
 TEST_CASE("Test replacement of w and v") {
@@ -36,6 +39,10 @@ TEST_CASE("Test replacement of w and v") {
     CHECK(find(text, "WVorry") == string("wworry"));
     CHECK(find(text, "wVorry") == string("wworry"));
     CHECK(find(text, "Wvorry") == string("wworry"));
+    CHECK_THROWS_AS(find(text, "w"), std::exception);
+    CHECK_THROWS_AS(find(text, "v"), std::exception);
+    CHECK_THROWS_AS(find(text, "W"), std::exception);
+    CHECK_THROWS_AS(find(text, "V"), std::exception);
 }
 
 TEST_CASE("Test replacement of f and p") {
@@ -50,6 +57,10 @@ TEST_CASE("Test replacement of f and p") {
     CHECK(find(text, "haFPy") == string("happy"));
     CHECK(find(text, "hafPy") == string("happy"));
     CHECK(find(text, "haFpy") == string("happy"));
+    CHECK_THROWS_AS(find(text, "f"), std::exception);
+    CHECK_THROWS_AS(find(text, "p"), std::exception);
+    CHECK_THROWS_AS(find(text, "F"), std::exception);
+    CHECK_THROWS_AS(find(text, "P"), std::exception);
 }
 
 TEST_CASE("Test replacement of f and b") {
@@ -64,6 +75,10 @@ TEST_CASE("Test replacement of f and b") {
     CHECK(find(text, "hafBy") == string("habby"));
     CHECK(find(text, "haFBy") == string("habby"));
     CHECK(find(text, "haBFy") == string("habby"));
+    CHECK_THROWS_AS(find(text, "f"), std::exception);
+    CHECK_THROWS_AS(find(text, "b"), std::exception);
+    CHECK_THROWS_AS(find(text, "F"), std::exception);
+    CHECK_THROWS_AS(find(text, "B"), std::exception);
 }
 
 TEST_CASE("Test replacement of g and j") {
@@ -78,6 +93,10 @@ TEST_CASE("Test replacement of g and j") {
     CHECK(find(text, "jeFe") == string("jeje"));
     CHECK(find(text, "JeFe") == string("jeje"));
     CHECK(find(text, "FeJe") == string("jeje"));
+    CHECK_THROWS_AS(find(text, "g"), std::exception);
+    CHECK_THROWS_AS(find(text, "j"), std::exception);
+    CHECK_THROWS_AS(find(text, "G"), std::exception);
+    CHECK_THROWS_AS(find(text, "J"), std::exception);
 }
 
 TEST_CASE("Test replacement of c and k") {
@@ -92,6 +111,10 @@ TEST_CASE("Test replacement of c and k") {
     CHECK(find(text, "ceKe") == string("keke"));
     CHECK(find(text, "CeKe") == string("keke"));
     CHECK(find(text, "KeCe") == string("keke"));
+    CHECK_THROWS_AS(find(text, "c"), std::exception);
+    CHECK_THROWS_AS(find(text, "k"), std::exception);
+    CHECK_THROWS_AS(find(text, "C"), std::exception);
+    CHECK_THROWS_AS(find(text, "K"), std::exception);
 }
 
 TEST_CASE("Test replacement of q and k") {
@@ -106,6 +129,10 @@ TEST_CASE("Test replacement of q and k") {
     CHECK(find(text, "qeKe") == string("keke"));
     CHECK(find(text, "QeKe") == string("keke"));
     CHECK(find(text, "KeQe") == string("keke"));
+    CHECK_THROWS_AS(find(text, "q"), std::exception);
+    CHECK_THROWS_AS(find(text, "k"), std::exception);
+    CHECK_THROWS_AS(find(text, "Q"), std::exception);
+    CHECK_THROWS_AS(find(text, "K"), std::exception);
 }
 
 TEST_CASE("Test replacement of c and q") {
@@ -120,6 +147,10 @@ TEST_CASE("Test replacement of c and q") {
     CHECK(find(text, "qeCe") == string("cece"));
     CHECK(find(text, "CeQe") == string("cece"));
     CHECK(find(text, "QeCe") == string("cece"));
+    CHECK_THROWS_AS(find(text, "c"), std::exception);
+    CHECK_THROWS_AS(find(text, "q"), std::exception);
+    CHECK_THROWS_AS(find(text, "C"), std::exception);
+    CHECK_THROWS_AS(find(text, "Q"), std::exception);
 }
 
 TEST_CASE("Test replacement of s and z") {
@@ -134,6 +165,10 @@ TEST_CASE("Test replacement of s and z") {
     CHECK(find(text, "seZe") == string("sese"));
     CHECK(find(text, "SeZe") == string("sese"));
     CHECK(find(text, "ZeSe") == string("sese"));
+    CHECK_THROWS_AS(find(text, "s"), std::exception);
+    CHECK_THROWS_AS(find(text, "z"), std::exception);
+    CHECK_THROWS_AS(find(text, "S"), std::exception);
+    CHECK_THROWS_AS(find(text, "Z"), std::exception);
 }
 
 TEST_CASE("Test replacement of d and t") {
@@ -148,6 +183,10 @@ TEST_CASE("Test replacement of d and t") {
     CHECK(find(text, "deTe") == string("dede"));
     CHECK(find(text, "DeTe") == string("dede"));
     CHECK(find(text, "TeTe") == string("dede"));
+    CHECK_THROWS_AS(find(text, "d"), std::exception);
+    CHECK_THROWS_AS(find(text, "t"), std::exception);
+    CHECK_THROWS_AS(find(text, "D"), std::exception);
+    CHECK_THROWS_AS(find(text, "T"), std::exception);
 }
 
 TEST_CASE("Test replacement of o and u") {
@@ -162,6 +201,10 @@ TEST_CASE("Test replacement of o and u") {
     CHECK(find(text, "Ueoe") == string("ueue"));
     CHECK(find(text, "UeOe") == string("ueue"));
     CHECK(find(text, "OeUe") == string("ueue"));
+    CHECK_THROWS_AS(find(text, "o"), std::exception);
+    CHECK_THROWS_AS(find(text, "u"), std::exception);
+    CHECK_THROWS_AS(find(text, "O"), std::exception);
+    CHECK_THROWS_AS(find(text, "U"), std::exception);
 }
 
 TEST_CASE("Test replacement of i and y") {
@@ -176,4 +219,8 @@ TEST_CASE("Test replacement of i and y") {
     CHECK(find(text, "Ieye") == string("yeye"));
     CHECK(find(text, "YeIe") == string("yeye"));
     CHECK(find(text, "IeYe") == string("yeye"));
+    CHECK_THROWS_AS(find(text, "i"), std::exception);
+    CHECK_THROWS_AS(find(text, "y"), std::exception);
+    CHECK_THROWS_AS(find(text, "I"), std::exception);
+    CHECK_THROWS_AS(find(text, "Y"), std::exception);
 }
