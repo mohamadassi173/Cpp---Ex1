@@ -47,7 +47,7 @@ namespace phonetic {
  std::string find(std::string b, std::string a){
      std::string temp;
      bool ans = false;
-     if(a=="")throw new std::exception();
+     if(a=="")throw std::exception();
      for(int i=0;i < b.length(); i++){
          if(b.at(i)!=' '){
              temp+= b.at(i);
