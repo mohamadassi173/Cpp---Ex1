@@ -47,7 +47,7 @@ namespace phonetic {
  std::string find(std::string b, std::string a){
      std::string temp;
      bool ans = false;
-     if(a=="") throw "error: empty word";
+     if(a=="")throw new std::exception();
      for(int i=0;i < b.length(); i++){
          if(b.at(i)!=' '){
              temp+= b.at(i);
@@ -60,7 +60,7 @@ namespace phonetic {
         ans = checkIfEqual(a, temp);
         if(ans) return temp;
         
-       throw "abode"; // if the word not exist!
+      throw new std::exception(); // if the word not exist!
 	}
 };
 
