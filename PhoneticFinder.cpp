@@ -60,7 +60,7 @@ namespace phonetic {
         ans = checkIfEqual(a, temp);
         if(ans) return temp;
         
-      throw new std::exception(); // if the word not exist!
+       throw std::invalid_argument("the word not exist"); // if the word not exist!
 	}
 };
 
