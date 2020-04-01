@@ -1,6 +1,50 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include "PhoneticFinder.hpp"
+
+
+namespace phonetic {
+ std::string find(std::string b, std::string a){
+     std::string temp;
+     bool ans = false;
+     if(a=="")throw std::exception();
+     for(int i=0;i < b.length(); i++){
+         if(b.at(i)!=' '){
+             temp+= b.at(i);
+             continue;
+         }
+         ans = checkIfEqual(a, temp);
+         if(ans) return temp;
+         else temp = "";
+     }
+        ans = checkIfEqual(a, temp);
+        if(ans) return temp;
+        
+       throw std::invalid_argument("the word not exist"); // if the word not exist!
+	}
+};
+
+
+
+////////////////////////////////////////////
+
+
+
+
+bool checkIfEqual(std::string text, std::string target){ /// check if the two words are equals.. ! 
+    text =  UpperCase(text); 
+    target =  UpperCase(target);
+    // case 1:
+     if(text.length() != target.length() ) return false;
+    // case 2:
+    bool ans = true;
+    for(int i=0;i<text.length();i++){// dont --- tond
+        ans = checkChar(text.at(i), target.at(i));
+        if(!ans) return false;
+    }
+    return true;
+}
 
 
 std::string UpperCase(std::string text){ // convert from uppercase to lowercase !
@@ -27,40 +71,4 @@ bool checkChar(char a, char b){ // v,w - b,f,p - g,j - c,k,q - s,z - d,t - o,u -
     return false;
 }
 
-bool checkIfEqual(std::string text, std::string target){
-    text =  UpperCase(text); 
-    target =  UpperCase(target);
-    // case 1:
-     if(text.length() != target.length() ) return false;
-    // case 2:
-    bool ans = true;
-    for(int i=0;i<text.length();i++){// dont --- tond
-        ans = checkChar(text.at(i), target.at(i));
-        if(!ans) return false;
-    }
-    return true;
-}
-
-namespace phonetic {
-    
-    
- std::string find(std::string b, std::string a){
-     std::string temp;
-     bool ans = false;
-     if(a=="")throw std::exception();
-     for(int i=0;i < b.length(); i++){
-         if(b.at(i)!=' '){
-             temp+= b.at(i);
-             continue;
-         }
-         ans = checkIfEqual(a, temp);
-         if(ans) return temp;
-         else temp = "";
-     }
-        ans = checkIfEqual(a, temp);
-        if(ans) return temp;
-        
-       throw std::invalid_argument("the word not exist"); // if the word not exist!
-	}
-};
 
