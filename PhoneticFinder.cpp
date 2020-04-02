@@ -32,15 +32,15 @@ namespace phonetic {
 
 
 
-bool checkIfEqual(std::string text, std::string target){ /// check if the two words are equals.. ! 
+bool checkIfEqual(std::string text, std::string target){ /// check if the two words are equal.. ! 
     text =  UpperCase(text); 
     target =  UpperCase(target);
     // case 1:
-     if(text.length() != target.length() ) return false;
+     if(text.length() != target.length() ) return false; // to avoid subText error! 
     // case 2:
     bool ans = true;
-    for(int i=0;i<text.length();i++){// dont --- tond
-        ans = checkChar(text.at(i), target.at(i));
+    for(int i=0;i<text.length();i++){
+        ans = checkChar(text.at(i), target.at(i)); //check if the chars are equal(example: d -- t or d -- d)
         if(!ans) return false;
     }
     return true;
